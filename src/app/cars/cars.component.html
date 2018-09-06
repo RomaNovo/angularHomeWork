@@ -1,13 +1,21 @@
-<input type="text" [attr.value]='greeting'>
+<input type="text" class="form-control" [(ngModel)]='carName'>
 <hr>
-<input type="text" [(ngModel)]='greeting'>
-<hr>
- <input type="text" value={{greeting}}>
-<p>
-	Hi {{greeting}}
-</p>
+<button class="btn btn-primary" (click)='addCar()'>Добавить машину</button>
 
-<button (click)='change()'>Click me</button>
-<button (click)= 'show()'>Click Alert</button>
+<!-- <p *ngIf='addCarStatus'>Машина добавлена</p>
+<p *ngIf='!addCarStatus'>Машина не добавлена</p> -->
+
+<p *ngIf='addCarStatus; else success'>Машина добавлена</p>
+
+<ng-template #success>
+	<p>Машина не добавлена</p>
+</ng-template>
+
+
+<p>{{addCarStatus}}</p>
+<hr>
+<h2>This is CAR component:</h2>
+<div class="app-car"></div>
+<div class="app-car"></div>
 
 

@@ -7,14 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class CarsComponent {
-	greeting: string = "Angular6";
+	
+	carName: string = '';
+	addCarStatus: Boolean = false;
 
-	change() {
-		this.greeting = 'Angular7';
-	}
-
-	show() {
-		alert(this.greeting);
+	addCar() {
+		this.addCarStatus = !this.addCarStatus;
 	}
 
 }

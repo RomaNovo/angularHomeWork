@@ -8,5 +8,14 @@ import { Component } from '@angular/core';
 
 export class CarComponent  {
 
+	name: string = 'BMW';
+	year: number = 2018;
 	
+	getName():string {
+		return this.name;
+	}
+
+	getYear():number {
+		return this.year;
+	}
 }
