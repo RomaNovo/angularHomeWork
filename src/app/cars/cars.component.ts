@@ -11,6 +11,12 @@ export class CarsComponent {
 	carName: string = '';
 	addCarStatus: Boolean = false;
 	cars: Array<string> = ['BMW','Mazda','Hunday','Audi','Bentli'];
+	dates = [
+	 new Date(2015, 3, 4).toString(),
+	 new Date(2011,2,5).toString(),
+	 new Date(2999,1,1).toString(),
+	 new Date(2000,1,7).toString()
+	]
 	
 
 	addCar() {
@@ -19,8 +25,5 @@ export class CarsComponent {
 		this.carName = '';
 	}
 
-	setBigCarText(car) {
-		return	(car.length > 4)?  true :  false;
-	}
 
 }
