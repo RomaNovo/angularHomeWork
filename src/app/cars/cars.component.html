@@ -3,13 +3,19 @@
 <button class="btn btn-primary" (click)='addCar()'>Добавить машину</button>
 
 <hr>
-<h2>This is CAR component:</h2>
-<div class="app-car" *ngFor='let car of cars' ></div>
+<!-- <h2>This is CAR component:</h2>
+<div class="app-car" *ngFor='let car of cars' ></div> -->
+
 <ul>
-	<li *ngFor='let item of items; let ind = index'>
-		<b>{{item.id}}</b> : {{item.name}} - <b>{{ind+1}}</b>
+	<li *ngFor='let car of cars; let idx= index'>
+		<div [ngStyle]="{backgroundColor :(idx)%2?'red':'green'}"
+			[style.border]="'1px solid aqua'"
+
+			[ngClass]="{'big-text':setBigCarText(car)}"
+			[class.small-text]="!setBigCarText(car)"
+		>
+			<b>{{idx+1}}</b> - {{car}}
+		</div>
 	</li>
 </ul>
-
-
 

@@ -10,17 +10,17 @@ export class CarsComponent {
 	
 	carName: string = '';
 	addCarStatus: Boolean = false;
-	cars: Array<string> = ['BMW','Mazda','Hunday'];
-	items: Array<object> = [
-		{id: 1, name: 'item1'},
-		{id: 2, name: 'item2'},
-		{id: 3, name: 'item3'}	
-	]
+	cars: Array<string> = ['BMW','Mazda','Hunday','Audi','Bentli'];
+	
 
 	addCar() {
 		this.addCarStatus = !this.addCarStatus;
 		this.cars.push(this.carName);
 		this.carName = '';
+	}
+
+	setBigCarText(car) {
+		return	(car.length > 4)?  true :  false;
 	}
 
 }
