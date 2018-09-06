@@ -29,13 +29,9 @@ export class CarsComponent {
 	constructo() {
 
 	}
-	addCar() {
-		this.cars.push({
-			name: this.carName,
-			year: this.carYear
-		});
-		this.carName = '';
-		this.carYear = 2018;
+
+	updateCarList(car: {name: string, year: number}){
+		this.cars.push(car);
 	}
 
 
