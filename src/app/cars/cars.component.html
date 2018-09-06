@@ -2,20 +2,14 @@
 <hr>
 <button class="btn btn-primary" (click)='addCar()'>Добавить машину</button>
 
-<!-- <p *ngIf='addCarStatus'>Машина добавлена</p>
-<p *ngIf='!addCarStatus'>Машина не добавлена</p> -->
-
-<p *ngIf='addCarStatus; else success'>Машина добавлена</p>
-
-<ng-template #success>
-	<p>Машина не добавлена</p>
-</ng-template>
-
-
-<p>{{addCarStatus}}</p>
 <hr>
 <h2>This is CAR component:</h2>
-<div class="app-car"></div>
-<div class="app-car"></div>
+<div class="app-car" *ngFor='let car of cars' ></div>
+<ul>
+	<li *ngFor='let item of items; let ind = index'>
+		<b>{{item.id}}</b> : {{item.name}} - <b>{{ind+1}}</b>
+	</li>
+</ul>
+
 
 
