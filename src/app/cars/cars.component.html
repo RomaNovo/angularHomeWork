@@ -1,6 +1,13 @@
+<input type="text" [attr.value]='greeting'>
+<hr>
+<input type="text" [(ngModel)]='greeting'>
+<hr>
+ <input type="text" value={{greeting}}>
+<p>
+	Hi {{greeting}}
+</p>
 
-
-
-
+<button (click)='change()'>Click me</button>
+<button (click)= 'show()'>Click Alert</button>
 
 

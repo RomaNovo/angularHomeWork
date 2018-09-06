@@ -5,9 +5,16 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './cars.component.html',
   styleUrls: ['./cars.component.css']
 })
+
 export class CarsComponent {
-	
-	
-	
+	greeting: string = "Angular6";
+
+	change() {
+		this.greeting = 'Angular7';
+	}
+
+	show() {
+		alert(this.greeting);
+	}
 
 }
