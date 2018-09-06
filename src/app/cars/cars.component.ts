@@ -8,21 +8,34 @@ import { Component, OnInit } from '@angular/core';
 
 export class CarsComponent {
 	
-	carName: string = '';
-	addCarStatus: Boolean = false;
-	cars: Array<string> = ['BMW','Mazda','Hunday','Audi','Bentli'];
-	dates = [
-	 new Date(2015, 3, 4).toString(),
-	 new Date(2011,2,5).toString(),
-	 new Date(2999,1,1).toString(),
-	 new Date(2000,1,7).toString()
-	]
-	
+	carName = '';
+	carYear = 2020;
 
+	cars: Array<{name: string, year: number}> = [
+		{
+			name: 'Ford',
+			year: 2015
+		},
+		{
+			name: 'Mazda',
+			year: 2010
+		},
+		{
+			name: 'Audi',
+			year: 2017	
+		}
+	];
+	
+	constructo() {
+
+	}
 	addCar() {
-		this.addCarStatus = !this.addCarStatus;
-		this.cars.push(this.carName);
+		this.cars.push({
+			name: this.carName,
+			year: this.carYear
+		});
 		this.carName = '';
+		this.carYear = 2018;
 	}
 
 

@@ -1,19 +1,8 @@
 <input type="text" class="form-control" [(ngModel)]='carName'>
-<hr>
-<button class="btn btn-primary" (click)='addCar()'>Добавить машину</button>
+<input type="text" class="form-control" [(ngModel)]='carYear'>
+<button class="btn btn-primary" (click)='addCar()'>Click me</button>
 
 <hr>
-<!-- <h2>This is CAR component:</h2>
-<div class="app-car" *ngFor='let car of cars' ></div> -->
 
-<ul>
-	<li *ngFor='let date of dates; let idx= index'>
-		<div >
-			<!-- <b>{{idx+1}}</b> - {{date | uppercase}} -->
-			<!-- <b>{{idx+1}}</b> - {{date | date: short}} -->
-			<b>{{idx+1}}</b> - {{date | date:medium}}
-		</div>
-	</li>
-</ul>
-
+<div class="app-car" *ngFor='let car of cars' [carItem]='car'></div>
 
