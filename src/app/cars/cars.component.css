@@ -1,5 +1,7 @@
- 
-:host ::ng-deep  {
+p {
+  color: red;
+}
+/* :host ::ng-deep  {
   color:blue;
 }
 :host ::ng-deep app-add-car {
@@ -10,6 +12,6 @@
 }
 :host ::ng-deep app-car {
   color:red;
-}
+} */
 
     

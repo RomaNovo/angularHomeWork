@@ -4,8 +4,8 @@ import { Component,Input, ViewEncapsulation } from '@angular/core';
   selector: 'app-car',
   templateUrl: './car.component.html',
   styleUrls: ['./car.component.css'],
-  encapsulation: ViewEncapsulation.Native
-
+  /*encapsulation: ViewEncapsulation.None	 
+*/
   
 })
 

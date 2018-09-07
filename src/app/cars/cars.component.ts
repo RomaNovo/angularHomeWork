@@ -4,7 +4,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   selector: 'app-cars',
   templateUrl: './cars.component.html',
   styleUrls: ['./cars.component.css'],// :host ::ng-deep
-  encapsulation: ViewEncapsulation.Emulated
+  /*encapsulation: ViewEncapsulation.Native*/
 })
 
 export class CarsComponent {

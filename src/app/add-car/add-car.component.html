@@ -2,6 +2,10 @@
 	Добавить машину
 </h2>
 
-<input type="text" class="form-control" [(ngModel)]='carName' [style.marginBottom]="'20px'">
+<!-- <input type="text" class="form-control" [(ngModel)]='carName' [style.marginBottom]="'20px'">
 <input type="text" class="form-control" [(ngModel)]='carYear' [style.marginBottom]="'20px'">
-<button class="btn btn-primary" (click)="addCars()">Добавить</button>
+<button class="btn btn-primary" (click)="addCars()">Добавить</button> -->
+
+<input type="text" class="form-control" #carName >
+<input type="text" class="form-control" #carYear >
+<button class="btn btn-primary" (click)="addCars(carName)">Добавить</button>
