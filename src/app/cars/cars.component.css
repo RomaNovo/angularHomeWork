@@ -1,8 +1,15 @@
-.big-text {
-	font-size: 200%;
+ 
+:host ::ng-deep  {
+  color:blue;
+}
+:host ::ng-deep app-add-car {
+  color:yellow;
+}
+:host ::ng-deep app-add-car input {
+  color:red;
+}
+:host ::ng-deep app-car {
+  color:red;
 }
 
-.small-text {
-	
-	color: yellow;
-}
+    

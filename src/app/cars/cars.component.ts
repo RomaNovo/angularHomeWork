@@ -1,16 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-cars',
   templateUrl: './cars.component.html',
-  styleUrls: ['./cars.component.css']
+  styleUrls: ['./cars.component.css'],// :host ::ng-deep
+  encapsulation: ViewEncapsulation.Emulated
 })
 
 export class CarsComponent {
 	
-	carName = '';
-	carYear = 2020;
-
 	cars: Array<{name: string, year: number}> = [
 		{
 			name: 'Ford',
@@ -25,14 +23,8 @@ export class CarsComponent {
 			year: 2017	
 		}
 	];
-	
-	constructo() {
 
-	}
-
-	updateCarList(car: {name: string, year: number}){
+	upgrateCarList(car:{name:string,year:number}) {
 		this.cars.push(car);
 	}
-
-
 }

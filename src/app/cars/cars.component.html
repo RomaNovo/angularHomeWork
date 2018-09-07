@@ -1,6 +1,16 @@
-<app-add-car (onAddCar)='updateCarList($event)'></app-add-car>
+<h1>
+	Car's component!
+</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui praesentium sunt soluta repellendus natus, nesciunt.</p>
+
+<!-- ADD-CAR Component -->
+<app-add-car (onAddCar)='upgrateCarList($event)'></app-add-car>
 
 <hr>
 
-<div class="app-car" *ngFor='let car of cars' [carItem]='car'></div>
+<!-- CAR Component -->
+<app-car *ngFor='let car of cars' [itemCar]='car'></app-car>
+
+
+
 

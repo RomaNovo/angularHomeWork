@@ -1,16 +1,18 @@
-import { Component, Input } from '@angular/core';
+import { Component,Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: '.app-car',
+  selector: 'app-car',
   templateUrl: './car.component.html',
-  styles: [`h2 {color: red}`]
+  styleUrls: ['./car.component.css'],
+  encapsulation: ViewEncapsulation.Native
+
+  
 })
 
 export class CarComponent  {
 
-
-	@Input('carItem') car: {name: string, year: number};
-
-	private carItem;
-	
+	@Input('itemCar') car:{name:string,year:number};
 }
+	
+	
+
