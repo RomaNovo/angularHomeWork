@@ -1,4 +1,4 @@
-import { Component,Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ContentChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-car',
@@ -6,13 +6,20 @@ import { Component,Input, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./car.component.css'],
   /*encapsulation: ViewEncapsulation.None	 
 */
-  
 })
 
-export class CarComponent  {
-	
 
-	@Input('itemCar') car:{name:string,year:number};
+
+export class CarComponent  {
+	@ContentChild('carH') c;
+
+	@Input('itemCar') car: {name:string,year:number};
+
+	ngAfterViewInit() {
+		console.log(this.c)
+	}
+
+
 }
 	
 	

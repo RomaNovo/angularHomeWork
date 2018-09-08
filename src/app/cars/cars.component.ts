@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, ViewChild, ElementRef} from '@angular/core';
+import { Component, ContentChild, ElementRef } from '@angular/core';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { Component, OnInit, ViewEncapsulation, ViewChild, ElementRef} from '@ang
 })
 
 export class CarsComponent {
-	name: string = 'Jora';
+	
 	
 	cars: Array<{name: string, year: number}> = [
 		{
@@ -29,4 +29,6 @@ export class CarsComponent {
 	upgrateCarList(car:{name:string,year:number}) {
 		this.cars.push(car);
 	}
+
+
 }

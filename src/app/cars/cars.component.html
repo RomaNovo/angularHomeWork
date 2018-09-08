@@ -1,20 +1,18 @@
 <h1>
-	Car's component!
+	Car's component
 </h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui praesentium sunt soluta repellendus natus, nesciunt.</p>
-
-<!-- ADD-CAR Component -->
-<app-add-car (onAddCar)='upgrateCarList($event)'></app-add-car>
 
 <hr>
 
-<!-- CAR Component -->
-<app-car *ngFor='let car of cars' [itemCar]='car'></app-car>
+<app-add-car (onAddCar)='upgrateCarList($event)'></app-add-car>
 
-<app-child-comp>
-	<h3 #header>Добро пожаловать {{name}} </h3>
+<div class="list-group">
+	<app-car class='list-group-item' *ngFor='let car of cars' [itemCar]='car'>
+		<h4 #carH class="list-group-item-heading">Название : {{car.name}}</h4>
+		<p class="list-group-item-text">Год : {{car.year}}</p>
+	</app-car>
+</div>
 
-</app-child-comp>
 
 
 
