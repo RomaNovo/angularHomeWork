@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
+import {ChildCompComponent} from '../child-comp/child-comp.component';
 
 @Component({
   selector: 'app-cars',
@@ -24,7 +25,16 @@ export class CarsComponent {
 		}
 	];
 
+	@ViewChild(ChildCompComponent) public childComp;
+
+
 	upgrateCarList(car:{name:string,year:number}) {
 		this.cars.push(car);
 	}
+
+	increment() {
+		this.childComp.increment();
+	}
+
+	decrement() {this.childComp.decrement()};
 }
