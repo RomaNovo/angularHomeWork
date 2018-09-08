@@ -11,6 +11,16 @@
 <!-- CAR Component -->
 <app-car *ngFor='let car of cars' [itemCar]='car'></app-car>
 
+<app-child-comp #child></app-child-comp>
+<button class="btn" (click)="child.increment()"[style.marginRight]="'50px'">+</button>
+<button class="btn" (click)="child.decrement()">-</button>
+
+
+<input type="text" [(ngModel)]="child.num">
+
+<p>{{child.num}}</p>
+
+
 
 
 

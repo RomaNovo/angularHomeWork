@@ -10,6 +10,7 @@ import { Component,Input, ViewEncapsulation } from '@angular/core';
 })
 
 export class CarComponent  {
+	
 
 	@Input('itemCar') car:{name:string,year:number};
 }
