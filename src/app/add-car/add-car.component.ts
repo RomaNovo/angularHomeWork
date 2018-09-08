@@ -10,12 +10,12 @@ export class AddCarComponent  {
 
 	carName:string = '';
 	carYear:number = 2020;
-	par = 'Angularjs'
+	
 
 
 	@Output('onAddCar')  addCar = new EventEmitter<{name:string,year:number}>();
 	@ViewChild('carYear') carY: ElementRef;
-	@ViewChild('paragraph') parag: ElementRef;
+	
 	
 
 	addCars(name: HTMLInputElement) {
@@ -26,14 +26,4 @@ export class AddCarComponent  {
 		name.value = '';
 		this.carY.nativeElement.value = 2020;
 	}
-	
-	changeT() {
-		this.par = 'hello';
-	}
-
-	show() {
-		console.dir(this.parag.nativeElement)
-	}
-
-
 }

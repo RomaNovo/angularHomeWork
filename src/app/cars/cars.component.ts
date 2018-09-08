@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
-import {ChildCompComponent} from '../child-comp/child-comp.component';
+import { Component, OnInit, ViewEncapsulation, ViewChild, ElementRef} from '@angular/core';
+
 
 @Component({
   selector: 'app-cars',
@@ -9,6 +9,7 @@ import {ChildCompComponent} from '../child-comp/child-comp.component';
 })
 
 export class CarsComponent {
+	name: string = 'Jora';
 	
 	cars: Array<{name: string, year: number}> = [
 		{
@@ -25,16 +26,7 @@ export class CarsComponent {
 		}
 	];
 
-	@ViewChild(ChildCompComponent) public childComp;
-
-
 	upgrateCarList(car:{name:string,year:number}) {
 		this.cars.push(car);
 	}
-
-	increment() {
-		this.childComp.increment();
-	}
-
-	decrement() {this.childComp.decrement()};
 }

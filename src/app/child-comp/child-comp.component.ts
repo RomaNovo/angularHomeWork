@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef,ContentChild } from '@angular/core';
 
 @Component({
   selector: 'app-child-comp',
@@ -6,9 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./child-comp.component.css']
 })
 export class ChildCompComponent {
-	num:number= 10;
+	@ContentChild('header') header: ElementRef;
+	@ViewChild('name') name;
+	n = 'aaa'
 
-  increment() {this.num++;}
-  	
-  decrement() {this.num--;}
+	change() {
+		console.log(this.header)
+	}
+	constructor() {
+		this.n = "heelo"
+		console.log(this.n)
+	}
 }

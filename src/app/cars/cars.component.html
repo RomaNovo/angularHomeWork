@@ -11,13 +11,10 @@
 <!-- CAR Component -->
 <app-car *ngFor='let car of cars' [itemCar]='car'></app-car>
 
-<app-child-comp></app-child-comp>
+<app-child-comp>
+	<h3 #header>Добро пожаловать {{name}} </h3>
 
-<button class="btn" (click) ='increment()'>+</button>
-<button class="btn" (click) ='decrement()'>-</button>
-
-
-
+</app-child-comp>
 
 
 
