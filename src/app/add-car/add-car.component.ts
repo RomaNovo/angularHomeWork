@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { Component,Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-add-car',
@@ -9,7 +9,7 @@ import { Component, Output, EventEmitter, ViewChild, ElementRef } from '@angular
 export class AddCarComponent  {
 	carName:string = '';
 	carYear:number = 2020;
-	
+	@Input() title:string;
 
 	@ViewChild('carYear') year: ElementRef;
 	@Output('onAddCar') carEmitter = new EventEmitter<{name:string,year:number}>();

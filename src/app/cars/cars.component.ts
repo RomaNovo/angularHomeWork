@@ -1,4 +1,4 @@
-import { Component, ContentChild, ElementRef } from '@angular/core';
+import { Component,  ElementRef,  ViewChild} from '@angular/core';
 
 
 @Component({
@@ -8,14 +8,16 @@ import { Component, ContentChild, ElementRef } from '@angular/core';
   /*encapsulation: ViewEncapsulation.Native*/
 })
 
-export class CarsComponent {
-	
+export class CarsComponent   {
+	title:string = 'Заголовок';
+
+	@ViewChild('par') par: ElementRef;
 	
 	cars: Array<{name: string, year: number}> = [
 		{
 			name: 'Ford',
 			year: 2015
-		},
+		}/*,
 		{
 			name: 'Mazda',
 			year: 2010
@@ -23,12 +25,14 @@ export class CarsComponent {
 		{
 			name: 'Audi',
 			year: 2017	
-		}
+		}*/
 	];
 
 	upgrateCarList(car:{name:string,year:number}) {
 		this.cars.push(car);
 	}
 
-
+	deleteCar() {
+		this.cars.splice(0,1);
+	}
 }

@@ -1,14 +1,16 @@
 <h1>
-	Car's component
+	Car's {{title}}
 </h1>
 
 <hr>
 
-<app-add-car (onAddCar)='upgrateCarList($event)'></app-add-car>
+<app-add-car (onAddCar)='upgrateCarList($event)' [title]='title'></app-add-car>
+<button class="btn btn-danger" (click)="deleteCar()">Удалить машину</button>		
 
 <div class="list-group">
-	<app-car class='list-group-item' *ngFor='let car of cars' [itemCar]='car'>
+	<app-car class='list-group-item' *ngFor='let car of cars' [itemCar]='car' >
 		<h4 #carH class="list-group-item-heading">Название : {{car.name}}</h4>
+		<p #par>Hello</p>
 		<p class="list-group-item-text">Год : {{car.year}}</p>
 	</app-car>
 </div>
