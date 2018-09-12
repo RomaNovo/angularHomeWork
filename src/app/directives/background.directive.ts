@@ -10,8 +10,9 @@ export class BackgroundDirective implements OnInit {
 
 	
 	ngOnInit() {
-		this.renderer.setStyle(this.element.nativeElement, 'color', 'darkred');
-		console.log(this.renderer);
+		const { nativeElement } = this.element;
+		this.renderer.setStyle(nativeElement, 'backgroundColor', 'darkred');
+		this.renderer.addClass(nativeElement, 'white-text');
 	}	
 
 
