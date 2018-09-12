@@ -1,19 +1,23 @@
-import { Directive, ElementRef, Renderer2, HostListener, OnInit } from '@angular/core';
+import { Directive, ElementRef, Renderer2, HostListener, HostBinding } from '@angular/core';
 
 @Directive({
 	selector: '[app-background]'
 })
 
-export class BackgroundDirective implements OnInit {
+export class BackgroundDirective {
 
 	constructor(public element: ElementRef, public  renderer: Renderer2) {}
 
-	
-	ngOnInit() {
-		const { nativeElement } = this.element;
-		this.renderer.setStyle(nativeElement, 'backgroundColor', 'darkred');
-		this.renderer.addClass(nativeElement, 'white-text');
-	}	
+	@HostBinding('style.backgroundColor') background:string;
+
+
+	@HostListener('mouseenter') onmouseenter() {
+		this.background = 'red'
+	}
+
+	@HostListener('mouseleave') onmouseleave() {
+		this.background = 'green'
+	}
 
 
 }
