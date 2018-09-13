@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { BackgroundDirective } from './directives/background.directive';
+import { PowPipe } from './pipeComponent/pow.pipe';
 
 
 
@@ -14,7 +15,8 @@ import { BackgroundDirective } from './directives/background.directive';
 @NgModule({
   declarations: [
     AppComponent,
-    BackgroundDirective
+    BackgroundDirective,
+    PowPipe
   ],
   imports: [
     BrowserModule,

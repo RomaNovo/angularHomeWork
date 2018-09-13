@@ -1,47 +1,7 @@
-<div class="col-xs-8 col-xs-offset-2">
-	<h1>STRING PIPE</h1>
-	<h4> {{ name }}</h4>
-	<h4> {{ name | uppercase }}</h4>
-	<h4> {{ name | lowercase }}</h4>
-	<h4> {{ name | slice: 3 : 6 }}</h4>
-	<h4> {{ name | slice: 3 : 6 | uppercase }}</h4>
+<h2>{{ num | powPipe : 3 }}</h2>
+<h2>{{ num | powPipe : 10 }}</h2>
+<h2>{{ 2 | powPipe : 7 }} </h2>
 
-	<hr>
-
-	<h1>NUMBER PIPE</h1>
-	<h4>{{ pi }}</h4>
-	<h4>{{ pi | number }}</h4>
-	<h4>{{ pi | number: '3.2-2' }}</h4>
-
-	<hr>
-
-	<h1> Valuta</h1>
-	<h4> {{ money | currency: 'USD' : false }}</h4>
-	<h4> {{ money | currency: 'EUR' }}</h4>
-	<h4> {{ money | currency: 'UA' }}</h4>
-	
-	<hr>
-
-	<h1> DATE</h1>
-	<h4>{{ date }}</h4>
-	<h4>{{ date | date : "longDate" }}</h4>
-	<h4>{{ date | date : 'shortDate' }}</h4>
-	<h4>{{ date | date : 'fullDate' }}</h4>
-	<h4>{{ date | date : 'shortTime' }}</h4>
-
-	<hr>
-
-	<h1> PERCENT</h1>
-
-	<h4>{{ amount }}</h4>
-	<h4>{{ amount | percent}}</h4>
-
-	<hr>
-
-	<h1> OBJECT</h1>
-	<h4>{{ object }}</h4>
-	<h4><pre>{{ object | json }}</pre></h4>
-</div>
 
 
 
