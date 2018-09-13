@@ -1,5 +1,19 @@
 <h1 [appbackground]="'green'" [hoverColor]="'darkred'" > Hello this is Main Component</h1>
 
+<ul class="list-group">
+	<li class="list-group-item" *ngFor='let item of items' (click)='onClick(item)'>
+		{{item}}
+	</li>
+</ul>
+
+<div [ngSwitch]='current'>
+	<p *ngSwitchCase='1'>1</p>
+	<p *ngSwitchCase='2'>2</p>
+	<p *ngSwitchCase='3'>3</p>
+	<p *ngSwitchCase='4'>4</p>
+	<p *ngSwitchDefault>default</p>
+</div>
+
 
 
 
