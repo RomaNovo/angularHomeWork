@@ -7,12 +7,17 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-	headerText = 'Создание своей директивы';
-
-	items: number[] = [1,2,3,4,5];
-	current: number = 1;
-
-	onClick(num:number) {
-		this.current = num;
+	name = 'WebForMyself';
+	pi = Math.PI;
+	money = 350;
+	date = new Date();
+	amount = 0.45;
+	object = {
+		foo: 'bar',
+		baz: 'qux', 
+		nested : {
+			xyz: 3,
+			numbers: [1,2,3]
+		}
 	}
 }
