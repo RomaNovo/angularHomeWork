@@ -1,8 +1,13 @@
-<h2>{{ num | powPipe : 3 }}</h2>
-<h2>{{ num | powPipe : 10 }}</h2>
-<h2>{{ 2 | powPipe : 7 }} </h2>
-
-
+<div>
+	<input type="text" class="form-control" [(ngModel)]='search'>
+	<hr>
+	<ul class="list-group">
+		<li class="list-group-item" *ngFor="let car of cars | carFilter : search : 'descr'; let i = index">
+			<b>{{ i + 1 }}.</b> {{car.name}} -<i> {{car.descr}}</i>
+		</li>
+	
+	</ul>
+</div>
 
 
 
