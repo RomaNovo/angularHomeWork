@@ -1,5 +1,10 @@
+
+
 <div>
+	<input type="text" class="form-control" [(ngModel)]='search1'>
 	<input type="text" class="form-control" [(ngModel)]='search'>
+	
+
 	<hr>
 	<ul class="list-group">
 		<li class="list-group-item" *ngFor="let car of cars | carFilter : search : 'descr'; let i = index">
@@ -7,6 +12,8 @@
 		</li>
 	
 	</ul>
+
+	<button class="btn btn-primary" (click)='addCar()' [style.marginTop]="'20px'">Добавить машину</button>
 </div>
 
 
