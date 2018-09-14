@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import  'rxjs/Rx' ;
+
+import { Observable, of } from "rxjs";
+
+
+
 
 @Component({
   selector: 'app-root',
@@ -7,9 +13,14 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-
+/*	title = '';*/
 	search:string = '';
 	search1:string = '';
+	asyncTitle = Observable.of('This is Async Title')
+	.delay(3000)
+	/*.subscribe((str)=> this.title = str)*/
+
+
 	
 	cars = [
 		{ name: 'Ford', descr :'asd 1' }, 
@@ -27,5 +38,7 @@ export class AppComponent {
 			descr: 'New Descr'
 		})
 	}
+
+
 }
 
