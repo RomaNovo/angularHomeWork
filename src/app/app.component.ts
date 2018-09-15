@@ -1,9 +1,4 @@
 import { Component } from '@angular/core';
-import  'rxjs/Rx' ;
-
-import { Observable, of } from "rxjs";
-
-
 
 
 @Component({
@@ -13,32 +8,28 @@ import { Observable, of } from "rxjs";
 })
 
 export class AppComponent {
-/*	title = '';*/
-	search:string = '';
-	search1:string = '';
-	asyncTitle = Observable.of('This is Async Title')
-	.delay(3000)
-	/*.subscribe((str)=> this.title = str)*/
 
-
-	
 	cars = [
-		{ name: 'Ford', descr :'asd 1' }, 
-		{ name: 'Mazda', descr :'gjg 2' },
-		{ name: 'Mercedes', descr :'45h 3' },
-		{ name: 'Tavria', descr :'gfhfg 4' },
-		{ name: 'Lada', descr :'krgf 5' },
-		{ name: 'Tavria', descr :'gfhfg 4' },
-		{ name: 'Nissan', descr :'hsd' },
-	] 
+		{
+			name: 'Ford',
+			isSold: false
+		},
+		{
+			name: 'Mazda',
+			isSold: false
+		},
+		{
+			name: 'Mercedes', 
+			isSold: true
+		}
+	];
 
-	addCar() {
+	addCarToList(carName:string) {
 		this.cars.push({
-			name: 'New Name',
-			descr: 'New Descr'
+			name: carName,
+			isSold: false
 		})
 	}
-
-
+	
 }
 

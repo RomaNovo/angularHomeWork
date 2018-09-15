@@ -2,3 +2,7 @@ div {
 	max-width: 500px;
 	margin: 75px 0 0 100px;
 }
+
+.black-text {
+	background-color: black;
+}
