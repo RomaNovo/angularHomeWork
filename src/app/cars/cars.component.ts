@@ -1,13 +1,15 @@
 import { Component, OnInit, Input} from '@angular/core';
+import { ConsoleService } from '../console.service';
 
 @Component({
   selector: 'app-cars',
   templateUrl: './cars.component.html',
-  styleUrls: ['./cars.component.css']
+  styleUrls: ['./cars.component.css'],
+  providers: [ ConsoleService ]
 })
 export class CarsComponent  {
 
-  constructor() { }
+  constructor(private service: ConsoleService) { }
 
   @Input() car;
 
@@ -20,10 +22,8 @@ export class CarsComponent  {
   }
 
   onAction(type: string) {
-  	this.car.IsSold = type === 'buy' ? true: false;
+  	this.car.isSold = type === 'buy' ? true: false;
+  	this.service.log(`${this.car.name} status = ${type}`);
   }
-
-
- 
 
 }

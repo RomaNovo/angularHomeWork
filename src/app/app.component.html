@@ -1,5 +1,5 @@
 <div class="col-xs-8 col-xs-offset-2">
-	<app-form (onAddCar)='addCarToList($event)'></app-form>
+	<app-form (onCarAdd)='addCarToList($event)'></app-form>
 	<div class="list-group">
 		<app-cars *ngFor='let car of cars' [car]='car'></app-cars>
 	</div>
