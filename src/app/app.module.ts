@@ -6,9 +6,9 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { CarFilterPipe } from './pipes/carFilter.pipe';
 import { BackgroundDirective } from './directives/background.directive';
-import { CarsComponent } from './cars/cars.component';
-import { FormComponent } from './form/form.component';
-
+import { CarComponent } from './car/car.component';
+import { AddCarComponent } from './add-car/add-car.component';
+import { ConsoleService } from './console.service';
 
 
 
@@ -21,15 +21,15 @@ import { FormComponent } from './form/form.component';
     AppComponent,
     CarFilterPipe,
     BackgroundDirective,
-    CarsComponent,
-    FormComponent
+    CarComponent,
+    AddCarComponent
   ],
   imports: [
     BrowserModule,
    	FormsModule,
    	HttpModule
   ],
-  providers: [],
+  providers: [ConsoleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

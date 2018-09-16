@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { CarService } from './car.service';
 
 
@@ -10,15 +10,14 @@ import { CarService } from './car.service';
   providers: [ CarService ]
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit  {
+		cars = [];
+		constructor(private carServ: CarService) {}
 
-	constructor(private serviceCar: CarService) {}
-
-	
-	cars = [];
-
-	ngOnInit() {
-		this.cars = this.serviceCar.cars;
-	}		
+		ngOnInit() {this.cars = this.carServ.cars;}
+			
+		addCar(name:string) {
+			this.carServ.carAdd(name);
+		}
 }
 
