@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component,  Output, OnInit, Input,  } from '@angular/core';
+import { CarService } from '../car.service';
 
 @Component({
   selector: 'app-form',
@@ -8,12 +9,14 @@ import { Component, EventEmitter, Output, OnInit, Input, ViewChild, ElementRef }
 
 export class FormComponent  {
 
-	@Output('onCarAdd') onCarAdd = new EventEmitter<String>();
+	constructor(private carS: CarService) {}
+
   carName = '';
 
   addCar() {
-    this.onCarAdd.emit(this.carName);
-    this.carName  = '';
+   
+    this.carS.addCar(this.carName);
+    this.carName = '';
   }
 
 }
