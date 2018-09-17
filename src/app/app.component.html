@@ -1,5 +1,6 @@
+
 <div>
-	<app-add-car (onCarAdd)='addCar($event)'></app-add-car>	
+	<app-add-car (onAddCar)='addCarToList($event)'></app-add-car>
 	<hr>
-	<app-car *ngFor='let car of cars' [car]='car'></app-car>
+	<app-cars *ngFor='let car of carList' [car]='car'></app-cars>
 </div>

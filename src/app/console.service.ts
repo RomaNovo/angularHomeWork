@@ -1,6 +1,6 @@
 export class ConsoleService {
 
-	log(mess:string) {
+	public log(mess) {
 		console.log(mess);
 	}
 }

@@ -1,7 +1,0 @@
-<div [ngClass]='getClass()'>
-	<h4>{{ car.name }}</h4>
-	<button class="btn btn-sm btn-primary" [disabled]='car.isSold' (click)='onAction("buy")'>
-		Купить
-	</button>
-	<button class="btn btn-sm btn-default" [disabled]= '!car.isSold' (click)='onAction("return")' [style.marginLeft]="'10px'"> Вернуть </button>
-</div>
