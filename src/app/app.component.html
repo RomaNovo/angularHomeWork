@@ -1,6 +1,26 @@
-
-<div>
-	<app-add-car (onAddCar)='addCarToList($event)'></app-add-car>
-	<hr>
-	<app-cars *ngFor='let car of carList' [car]='car'></app-cars>
+<div class="col-xs-8 col-xs-offset-2">
+	<form (ngSubmit)='submitForm(form)' #form='ngForm'>
+		<div class="form-group">
+			<label>Email</label>
+			<input type="text" class="form-control" ngModel name='email'>
+		</div>
+		<div class="form-group">
+			<label>Пароль</label>
+			<input type="password" class="form-control" ngModel name='pass'>
+		</div>
+		<div class="form-group">
+			<label>Выберите страну</label>
+			<select class="form-control" ngModel name='country'>
+				<option value="ru">Россия</option>
+				<option value="by">Беларусия</option>
+				<option value="ua">Украина</option>
+			</select>
+		</div>
+		<div class="radio" *ngFor='let item of list'>
+			<label>
+				<input type="radio" [value]='item.type' name='answer' ngModel> {{item.text}}
+			</label>
+		</div>
+		<button class="btn btn-success" type="submit">Сохранить</button>
+	</form>
 </div>
