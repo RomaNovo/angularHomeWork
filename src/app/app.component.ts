@@ -17,6 +17,9 @@ export class AppComponent  {
 		text: 'Нет'
 	}]
 
+	public defaultAnswer: string = 'no';
+	public defaultCountry: string = 'ua';
+
 	submitForm(form:HTMLFormElement) {
 		console.log('submited!', this.form)
 	}

@@ -11,15 +11,15 @@
 		</div>
 		<div class="form-group">
 			<label>Выберите страну</label>
-			<select class="form-control" ngModel name='country' #select = 'ngModel' required [ngClass]="{'error': select.invalid && select.touched}">
+			<select class="form-control" [ngModel]='defaultCountry' name='country' #select = 'ngModel' required [ngClass]="{'error': select.invalid && select.touched}">
 				<option value="ru">Россия</option>
 				<option value="by">Беларусия</option>
 				<option value="ua">Украина</option>
 			</select>
 		</div>
-		<div class="radio" *ngFor='let item of list' required>
+		<div class="radio" *ngFor='let item of list' required [ngModel]='defaultAnswer'>
 			<label>
-				<input type="radio" [value]='item.type' name='answer' ngModel> {{item.text}}
+				<input type="radio" [value]='item.type' name='answer' [ngModel]='defaultAnswer'> {{item.text}}
 			</label>
 		</div>
 		<button class="btn btn-success" type="submit" [disabled]='!form.valid'>Сохранить</button>
