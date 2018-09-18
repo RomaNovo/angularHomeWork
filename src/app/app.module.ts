@@ -12,11 +12,13 @@ import { BackgroundDirective } from './directives/background.directive';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     CarFilterPipe,
-    BackgroundDirective  
+    BackgroundDirective,
+  
   ],
   imports: [
     BrowserModule,

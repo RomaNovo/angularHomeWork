@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
+import { Component} from '@angular/core';
+import { User } from './user/user.component';
 
 @Component({
   selector: 'app-root',
@@ -7,21 +8,16 @@ import { Component, OnInit, ViewChild} from '@angular/core';
 })
 
 export class AppComponent  {
-	@ViewChild('form') form:HTMLFormElement;
+		
+	roles: string[] = ['Guest', 'Moderator', 'Administrator'];
 
-	public list: Array<{ type: string, text: string }> = [{
-		type: 'yes',
-		text: 'Да'
-	}, {
-		type: 'no',
-		text: 'Нет'
-	}]
+	model: User = new User(0, '', '', 0);
 
-	public defaultAnswer: string = 'no';
-	public defaultCountry: string = 'ua';
 
-	submitForm(form:HTMLFormElement) {
-		console.log('submited!', this.form)
+	get diagnostic() { return JSON.stringify(this.model)}
+
+	formObj(obj){
+		console.log(obj);
 	}
 }
 

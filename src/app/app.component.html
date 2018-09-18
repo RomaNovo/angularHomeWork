@@ -1,27 +1,28 @@
-<div class="col-xs-8 col-xs-offset-2">
-	<form (ngSubmit)='submitForm(form)' #form='ngForm'>
-		<div class="form-group" >
-			<label>Email</label>
-			<input type="text" class="form-control" ngModel name='email' required email #email='ngModel' [ngClass]="{'error': email.invalid && email.touched}" >
-			<p *ngIf='email.invalid && email.touched'>Введите правильно емайл</p>
-		</div>
+<div class="container">
+	<h3>User Registration</h3>
+
+	<form (ngSubmit)='formObj(form)' #form='ngForm'>
 		<div class="form-group">
-			<label>Пароль</label>
-			<input type="password" class="form-control" ngModel name='pass' #password = 'ngModel' required [ngClass]="{'error': password.invalid && password.touched}">
+			<label for="name">Name</label>
+			<input type="text" class="form-control" id="name" required [(ngModel)]='model.name' name='name'>
 		</div>
+
 		<div class="form-group">
-			<label>Выберите страну</label>
-			<select class="form-control" [ngModel]='defaultCountry' name='country' #select = 'ngModel' required [ngClass]="{'error': select.invalid && select.touched}">
-				<option value="ru">Россия</option>
-				<option value="by">Беларусия</option>
-				<option value="ua">Украина</option>
+			<label for="age">Age</label>
+			<input type="number" class="form-control" id="age" name="age" [(ngModel)]="model.age">
+		</div>
+
+		<div class='form-group'>
+			<label for="role">Role</label>
+			<select name="role" id="role" class="form-control" required [(ngModel)]="model.role">
+				<option  *ngFor="let r of roles" [value]="r"> {{r}} </option>
 			</select>
 		</div>
-		<div class="radio" *ngFor='let item of list' required [ngModel]='defaultAnswer'>
-			<label>
-				<input type="radio" [value]='item.type' name='answer' [ngModel]='defaultAnswer'> {{item.text}}
-			</label>
-		</div>
-		<button class="btn btn-success" type="submit" [disabled]='!form.valid'>Сохранить</button>
+
+		<button class="btn btn-default" type="submit">Submit</button>
+		<p> {{ diagnostic }} </p>
 	</form>
 </div>
+
+
+
