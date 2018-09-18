@@ -7,7 +7,13 @@ div {
 	background-color: black;
 }
 
-
-.error {
-	border: 1px solid red;
+.ng-invalid[required].ng-touched {
+	border-bottom: 5px solid red;
 }
+
+.ng-valid:not(form) {
+	border-bottom: 5px solid mediumseagreen;
+}
+
+
+

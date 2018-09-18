@@ -1,22 +1,29 @@
 <div class="container">
 	<h3>User Registration</h3>
 
-	<form (ngSubmit)='formObj(form)' #form='ngForm'>
+	<form (ngSubmit)='formObj()' #userForm='ngForm'>
 		<div class="form-group">
 			<label for="name">Name</label>
-			<input type="text" class="form-control" id="name" required [(ngModel)]='model.name' name='name'>
+			<input type="text" class="form-control" id="name" required [(ngModel)]='model.name' name='name' #name='ngModel' minlength="4">
+			<div class="alert alert-danger" *ngIf='formErrors.name'>
+				{{formErrors.name}}
+			</div>
 		</div>
 
 		<div class="form-group">
 			<label for="age">Age</label>
-			<input type="number" class="form-control" id="age" name="age" [(ngModel)]="model.age">
+			<input type="number" class="form-control" id="age" name="age" [(ngModel)]="model.age" required #age='ngModel'>
+			<div class="alert alert-danger" *ngIf='formErrors.age'>
+				{{formErrors.age}}
+			</div>
 		</div>
 
 		<div class='form-group'>
 			<label for="role">Role</label>
-			<select name="role" id="role" class="form-control" required [(ngModel)]="model.role">
+			<select name="role" id="role" class="form-control" required [(ngModel)]="model.role" #role='ngModel'>
 				<option  *ngFor="let r of roles" [value]="r"> {{r}} </option>
 			</select>
+			<p class="alert alert-danger" [hidden]='role.valid || role.pristine'>Поле роль обязательное</p>
 		</div>
 
 		<button class="btn btn-default" type="submit">Submit</button>
