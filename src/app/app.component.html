@@ -1,35 +1,42 @@
-<div class="container">
-	<h3>User Registration</h3>
+<div class="wrp">
+	<form (ngSubmit)='onSubmit(form)' #form='ngForm'>
+		<div ngModelGroup='user' #user='ngModelGroup'>
+			<div>
+				<label for="first-name">First Name</label>
+				<input type="text" id='first-name' class="form-control" ngModel name='firstName' required #name='ngModel'>
+				<div *ngIf='name.invalid && name.touched' [ngClass]="{'input-errors': name.invalid && name.touched}">Enter correctly name</div>
+			</div>
+			<div>
+				<label for="last-name">Last Name</label>
+				<input type="text" id="last-name" class="form-control" ngModel name='lastName' required #lastName='ngModel'>
+				<div *ngIf='lastName.invalid && lastName.touched' [ngClass]="{'input-errors': lastName.invalid && lastName.touched}">Enter correctly last name</div>
+			</div>	
 
-	<form (ngSubmit)='formObj()' #userForm='ngForm'>
-		<div class="form-group">
-			<label for="name">Name</label>
-			<input type="text" class="form-control" id="name" required [(ngModel)]='model.name' name='name' #name='ngModel' minlength="4">
-			<div class="alert alert-danger" *ngIf='formErrors.name'>
-				{{formErrors.name}}
+			<div *ngIf='user.invalid && user.touched' [class.group-errors]='user.invalid && user.touched'>Data of user enter correctly</div>	
+		</div>
+		<div>
+			<div>
+				<label for="email">Email</label>
+				<input type="text" id="email" class="form-control" ngModel name='email' required email minlength='4' #email='ngModel'>
+				<button type="button" (click)='addRandomEmail()'>Random Email</button>
+				<div *ngIf='email.invalid && email.touched' [ngClass]="{'input-errors': email.invalid && email.touched}">Enter correctly email</div>	
+			</div>
+			<div>
+				<label for="pass">Password</label>
+				<input type="password" id="pass" class="form-control" ngModel name='password' required #password='ngModel'>
+				<div *ngIf='password.invalid && password.touched' [ngClass]="{'input-errors': password.invalid && password.touched}">Enter correctly password</div>	
 			</div>
 		</div>
-
-		<div class="form-group">
-			<label for="age">Age</label>
-			<input type="number" class="form-control" id="age" name="age" [(ngModel)]="model.age" required #age='ngModel'>
-			<div class="alert alert-danger" *ngIf='formErrors.age'>
-				{{formErrors.age}}
-			</div>
+		<div [style.marginTop]="'30px'">
+			<select name="" class="form-control"  name='select' required [(ngModel)]='myCountry'>	
+				<option value="ua">Ukraine</option>
+				<option value="by">Belarus</option>
+				<option value="ml">Moldova</option>
+			</select>	
 		</div>
-
-		<div class='form-group'>
-			<label for="role">Role</label>
-			<select name="role" id="role" class="form-control" required [(ngModel)]="model.role" #role='ngModel'>
-				<option  *ngFor="let r of roles" [value]="r"> {{r}} </option>
-			</select>
-			<p class="alert alert-danger" [hidden]='role.valid || role.pristine'>Поле роль обязательное</p>
-		</div>
-
-		<button class="btn btn-default" type="submit">Submit</button>
-		<p> {{ diagnostic }} </p>
+		
+		<button class="btn btn-primary" [style.marginTop]="'30px'" >Send form</button>	
 	</form>
 </div>
-
 
 
