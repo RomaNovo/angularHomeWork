@@ -1,47 +1,4 @@
-div {
-	max-width: 600px;	
-}
 
-.black-text {
-	background-color: black;
-}
-
-/* .ng-invalid[required].ng-touched {
-	border-bottom: 5px solid red;
-}
-
-.ng-valid:not(form) {
-	border-bottom: 5px solid mediumseagreen;
-} */
-
-.wrp {
-	margin-left: 40px;
-	margin-top: 40px;
-}
-
-.ng-touched.ng-pristine.ng-invalid:not(form):not(div) {
-	border-bottom: 5px solid darkred;
-}
-
-.ng-valid.ng-dirty:not(form):not(div) {
-	border-bottom: 5px solid mediumseagreen;
-}
-
-.ng-valid.ng-touched:not(form):not(div) {
-	border-bottom: 5px solid mediumseagreen;
-}
-
-.input-errors {
-	background-color: pink;
-	color: white;
-	font-weight: bold;
-}
-
-.group-errors {
-	background: mediumseagreen;
-	color: #fff;
-	font-weight: bold;
-}
 
 
 

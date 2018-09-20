@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild} from '@angular/core';
-import { NgForm, NgModel } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 
 
 @Component({
@@ -9,29 +10,23 @@ import { NgForm, NgModel } from '@angular/forms';
 })
 
 export class AppComponent  {
-	
-	@ViewChild('form')	 form: NgForm;
-	onSubmit(form: NgForm) {
-		console.log(form);
-	}
 
-	myCountry: string = 'ua'
+	// FormGroup - группа отдельных элементов управления => FormControl
+	//FormControl - класс, который представляет элемент управления
 
-	addRandomEmail(){
-		const randomEmail= "roma.novomodnyi@gmail.com";
-		/*this.form.setValue({
-			user: {
-				firstName: this.form.value.user.firstName,
-				lastName: this.form.value.user.lastName
-			},
-			email: randomEmail,
-			password: this.form.value.password,
-			select: this.form.value.select
-		})*/
-		this.form.form.patchValue({
-			email: randomEmail	
+	loginForm: FormGroup;
+
+
+	ngOnInit() {
+		this.loginForm = new FormGroup({
+			login: new FormControl('user1', Validators.required),
+			password: new FormControl('', [Validators.required, Validators.minLength(7)])
 		})
-		console.log(this.form.form)
 	}
+
+	onSubmit(form) {
+		console.log(this.loginForm)
+	}
+	 
 }
 
