@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild} from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 
 
@@ -11,17 +11,17 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 export class AppComponent  {
 
-	// FormGroup - группа отдельных элементов управления => FormControl
-	//FormControl - класс, который представляет элемент управления
+	constructor(private fb: FormBuilder){};
 
 	loginForm: FormGroup;
 
-
 	ngOnInit() {
-		this.loginForm = new FormGroup({
-			login: new FormControl('user1', Validators.required),
-			password: new FormControl('', [Validators.required, Validators.minLength(7)])
-		})
+			// FormBuilder - класс представляющий удобный интерфейс для создания экземпляров FormControl
+
+			this.loginForm = this.fb.group({
+				login: ['user1', Validators.required],
+				password: ['', [Validators.required, Validators.minLength(5)]]
+			});
 	}
 
 	onSubmit(form) {
