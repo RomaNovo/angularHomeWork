@@ -1,6 +1,8 @@
 import { Component, ElementRef, ViewChild} from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormControl, FormArray, FormGroup, Validators } from '@angular/forms';
 import { User } from './user';
+import { AbstractControl } from '@angular/forms';
+import { equalValidator, rangeValidator } from './custom-validator';
 
 
 
@@ -12,83 +14,35 @@ import { User } from './user';
 
 export class AppComponent  {
 
-	userForm: FormGroup;
-
-	user:User = new User('', '', '', 0);
-
-	constructor(private formBuild: FormBuilder){}
+	obj = { 1 : '0', 2: '1', 3: '3'}
+	min = Object.keys(this.obj);
 
 
-	roles: string[] = ['Guest', 'Moderator', 'Administrator'];
+	regForm: FormGroup = new FormGroup({
+			'user' : new FormGroup({
+				'firstName': new FormControl('', Validators.required),
+				'lastName': new FormControl('', Validators.required)
+			}),
+			'emails': new FormArray([
+				new FormControl('', [Validators.email, Validators.required])
+			]),
+			'pass': new FormGroup({
+				'password': new FormControl('', [Validators.required, Validators.minLength(5), rangeValidator(22222,22222)]),
+				'confirm': new FormControl('', Validators.required)
+			}, equalValidator)
+	})
 
-	formErrors = {
-		'name': '', 
-		'age': '',
-		'email': '',
-		'role': ''
+	onSubmit(f){
+		console.log('Submited!')
+		console.log(f);
 	}
 
-
-	validationMessages = {
-		'name': {
-			'required': 'Обязательное поле.',
-			'minlength': 'Значение должно быть не менее 4х символов.',
-			'maxlength': 'Значение не должно быть больше 15 символов.'
-		},
-		'email': {
-			'required': 'Обязательное поле.',
-			'pattern': 'Не правильный формат'
-		},
-		'role': {
-			'required': 'Обязательное поле.'
-		},
-		'age': {
-			'required': 'Обязательное поле.',
-			'pattern': 'Значение должно быть целым числом.'
-		}
+	addEmail() {
+		(<FormArray>this.regForm.controls['emails']).push(new FormControl('', [Validators.email, Validators.required]))
 	}
 
-	ngOnInit() {
-			this.buildForm();
-			this.onSubmit();
-	}
-
-	buildForm() {
-		this.userForm = this.formBuild.group({
-			'name': [this.user.name, [Validators.required, Validators.minLength(4), Validators.maxLength(15)]],
-			'email': [this.user.email, [Validators.required, Validators.pattern("[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}")]],
-			'role': [this.user.role, Validators.required],
-			'age': [this.user.age, [Validators.required, Validators.pattern("\\d+")]]
-		})
-
-			this.userForm.valueChanges.subscribe(()=> this.onChangeValue());
-	
-			this.onChangeValue();
-		
-	}
-
-	onChangeValue() {
-			if(!this.userForm) return;
-			let form = this.userForm;
-
-			for( let field in this.formErrors) {
-				this.formErrors[field] = '';
-
-				let control = form.get(field);
-				
-				if(control && control.dirty && !control.valid) {
-
-					let message = this.validationMessages[field];
-					for( let error in control.errors) {
-						this.formErrors[field] += message[error];
-					}
-				}
-			}
-	}
-
-	onSubmit(f) {
-		console.log(f)
-		
+	show(){
+		console.log(this.min)
 	}
 }
 
