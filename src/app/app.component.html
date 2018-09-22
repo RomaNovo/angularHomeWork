@@ -1,11 +1,13 @@
 <div class="container">
 	<form [formGroup]= "emForm" (ngSubmit)='onSubmit(emForm)'>
 
-		<div class="form-group"
-			[class.danger]="emForm.get('email').errors?.asyncEmailValidator"
-			[class.success]="!emForm.get('email').hasError('asyncEmailValidator') &&
-			emForm.get('email').valid"
+		<div class="form-group" 
+			[class.danger]="emForm.get('email').hasError('blackListValidator')"
+			[class.success]="!emForm.get('email').hasError('blackListValidator') &&
+							emForm.get('email').valid"
 		>
+			
+		
 
 			<label for="email">Email</label>
 
@@ -14,17 +16,15 @@
 				class="form-control"
 				formControlName="email">
 
-			 <span *ngIf="emForm.controls.email.pending"
-			 			
+
+
+			 <span *ngIf="emForm.controls.email.pending"			
 			 >
 			 	Check email..pending
 			 </span>
-			<!-- <span *ngIf="emForm.get('email').errors?.asyncEmailValidator">
-				Enter correctly email
-			</span> -->
-
-			<span *ngIf="emForm.get('email').hasError('asyncEmailValidator')">
-				Enter correctly email
+			
+			<span *ngIf="emForm.get('email').hasError('blackListValidator')">
+				This mail is Blocked
 			</span>
 
 			

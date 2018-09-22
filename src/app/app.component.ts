@@ -2,11 +2,8 @@ import { Component, ElementRef, ViewChild, OnInit} from '@angular/core';
 import { FormControl, FormBuilder, FormArray, FormGroup, Validators } from '@angular/forms';
 import { User } from './user';
 import { asyncEmailValidator } from './async-validator.validator';
-
-
-
-
-
+import { BlackListService } from './blacklist.service';
+import { blackListValidator } from './blacklist.validator'
 
 
 @Component({
@@ -17,10 +14,10 @@ import { asyncEmailValidator } from './async-validator.validator';
 
 export class AppComponent  {
 
-	constructor(private fb: FormBuilder){}
+	constructor(private blackService: BlackListService){}
 
-	emForm: FormGroup = this.fb.group({
-		"email" :['', [Validators.required], asyncEmailValidator]
+	emForm: FormGroup = new FormGroup({
+		"email" : new FormControl('',   [ Validators.required, Validators.email ],  blackListValidator(this.blackService)     )
 	})
 
 	onSubmit(f){
