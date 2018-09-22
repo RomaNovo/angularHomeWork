@@ -1,107 +1,34 @@
 <div class="container">
+	<form [formGroup]= "emForm" (ngSubmit)='onSubmit(emForm)'>
 
-	<form [formGroup]='regForm' (ngSubmit)='onSubmit(regForm)'>
+		<div class="form-group">
 
-		<div formGroupName="user">
+			<label for="email">Email</label>
 
-			<div class="form-group" 
-				[ngClass]="{'has-error': regForm.get('user.firstName').invalid &&
-									     regForm.get('user.firstName').touched}"
+			<input type="email"
+				id="email" 
+				class="form-control"
+				formControlName="email">
+
+			<span *ngIf="emForm.get('email').hasError('email')">Enter Corectly</span>
+			<br>
+			<span *ngIf="emForm.controls.email.hasError('email')">Enter Corectly 2</span>
+			<br>
+			<span *ngIf="emForm.hasError('email', 'email')">Enter Corectly 3</span>
+			<br>
+			<span *ngIf='emForm.controls.email.errors?.email'>Enter Corectly 4 --</span>
+			<br>
+			<span *ngIf='emForm.get("email").errors?.email'>Enter Corectly 5 --</span>
+			<br>
+			<span *ngIf='emForm.get("email").errors.minlength &&
+						 emForm.get("email").touched'
 			>
-
-				<label for="firstName">First Name</label>
-
-				<input type="text"
-					formControlName="firstName"
-					id="firstName"
-					class="form-control"
-				>
-
-				<div class="alert alert-danger" 
-					*ngIf="regForm.get('user.firstName').invalid &&
-						   regForm.get('user.firstName').touched"
-				>
-					Enter correctly Name
-				</div>
-			</div>
-
-			<div class="form-group" 
-				[ngClass]="{'has-error': regForm.controls['user'].controls['lastName'].invalid &&
-										 regForm.controls['user'].controls['lastName'].touched}"
-				>
-
-				<label for="lastName">Last Name</label>
-
-				<input type="text"
-					formControlName="lastName"
-					id="lastName" 
-					class="form-control" 
-				>
-
-				<div class="alert alert-danger" 
-					*ngIf="regForm.get('user.lastName').invalid && 
-						   regForm.get('user.lastName').touched"
-				>
-					Enter correctly LastName
-				</div>
-			</div>
+				Width strings should be {{emForm.controls.email.errors?.minlength.requiredLength}} symbols
+			</span>
+			<br>
 		</div>
 
-		<div formArrayName="emails">
-			<div class="form-group"
-				[ngClass]="{'has-error': regForm.get('emails').controls[id].invalid &&
-										 regForm.controls['emails'].controls[id].touched}"
-				*ngFor='let email of regForm.controls["emails"].controls; let id= index'
-			>
-				
-				<label for="email">Email {{id + 1}}</label>
+		<button class="btn btn-primary" (click)="onSubmit()">Submit</button>
 
-				<input type="email"
-					formControlName='{{id}}'
-					id="email"
-					class="form-control" 
-				>
-
-				<div class="alert alert-danger"
-					*ngIf="regForm.get('emails').controls[id].invalid &&
-						   regForm.get('emails').controls[id].touched"
-				>
-					Enter correctly email
-				</div>
-			</div>
-		</div>
-
-		<div formGroupName="pass">
-			<div class="form-group" [ngClass]="{'has-error': regForm.get('pass.password').invalid && regForm.get('pass.password').touched}">
-				<label for="password">Password</label>
-					<input type="text"
-						class="form-control"
-						formControlName="password"
-						>
-			</div>
-
-			<div class="form-group" [ngClass]="{'has-error': regForm.get('pass.confirm').invalid && regForm.get('pass.confirm').touched}">
-				<label for="confirm">Password Confirm</label>
-					<input type="text"
-						class="form-control"
-						formControlName="confirm"
-						>
-			</div>
-
-			<p *ngIf="regForm.get('pass.confirm').dirty && regForm.get('pass.password').dirty && regForm.hasError('equal', 'pass')">Пароли не совпадают</p>
-		</div>
-
-		<div class='form-group'>
-			<button type='button' class="btn btn-default" (click)="addEmail()">Add Email</button>
-			<hr>
-			<button class="btn btn-default"
-				
-				>
-				Submit
-			</button>
-		</div>
 	</form>
-	<button (click)='show()'>Click show</button>
 </div>
-
-

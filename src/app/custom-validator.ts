@@ -5,7 +5,7 @@ export function equalValidator(control: AbstractControl): { [ key : string] : an
 	const [first, ...rest] = Object.keys(value);
 	const valid = rest.every(v => rest[v] === value[v]);
 
-	return valid ?  null :  { equalValidator }  
+	return valid ?  null :  { equalValidator: true }  
 }
 
 
@@ -15,9 +15,9 @@ export function rangeValidator(min : number, max: number): ValidatorFn {
 		const numValue = Number(control.value);
 
 		if(isNaN(numValue)) {
-			return { rangeValidator : numValue }
+			return { rangeValidator : true }
 		} else if (numValue <= min || numValue >= max) {
-			return { rangeValidator : numValue }
+			return { rangeValidator : true }
 		}
 		else {
 			return null;
