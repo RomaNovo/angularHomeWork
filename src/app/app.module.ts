@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { CarFilterPipe } from './pipes/carFilter.pipe';
 import { BackgroundDirective } from './directives/background.directive';
+import { BlackListService } from './blacklist.service';
 
 
 
@@ -25,7 +26,7 @@ import { BackgroundDirective } from './directives/background.directive';
    	HttpModule,
     ReactiveFormsModule
   ],
-  providers: [ ],
+  providers: [BlackListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

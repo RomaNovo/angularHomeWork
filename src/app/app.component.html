@@ -1,7 +1,11 @@
 <div class="container">
 	<form [formGroup]= "emForm" (ngSubmit)='onSubmit(emForm)'>
 
-		<div class="form-group">
+		<div class="form-group"
+			[class.danger]="emForm.get('email').errors?.asyncEmailValidator"
+			[class.success]="!emForm.get('email').hasError('asyncEmailValidator') &&
+			emForm.get('email').valid"
+		>
 
 			<label for="email">Email</label>
 
@@ -10,22 +14,20 @@
 				class="form-control"
 				formControlName="email">
 
-			<span *ngIf="emForm.get('email').hasError('email')">Enter Corectly</span>
-			<br>
-			<span *ngIf="emForm.controls.email.hasError('email')">Enter Corectly 2</span>
-			<br>
-			<span *ngIf="emForm.hasError('email', 'email')">Enter Corectly 3</span>
-			<br>
-			<span *ngIf='emForm.controls.email.errors?.email'>Enter Corectly 4 --</span>
-			<br>
-			<span *ngIf='emForm.get("email").errors?.email'>Enter Corectly 5 --</span>
-			<br>
-			<span *ngIf='emForm.get("email").errors.minlength &&
-						 emForm.get("email").touched'
-			>
-				Width strings should be {{emForm.controls.email.errors?.minlength.requiredLength}} symbols
+			 <span *ngIf="emForm.controls.email.pending"
+			 			
+			 >
+			 	Check email..pending
+			 </span>
+			<!-- <span *ngIf="emForm.get('email').errors?.asyncEmailValidator">
+				Enter correctly email
+			</span> -->
+
+			<span *ngIf="emForm.get('email').hasError('asyncEmailValidator')">
+				Enter correctly email
 			</span>
-			<br>
+
+			
 		</div>
 
 		<button class="btn btn-primary" (click)="onSubmit()">Submit</button>

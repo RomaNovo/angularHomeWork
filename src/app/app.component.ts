@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild, OnInit} from '@angular/core';
 import { FormControl, FormBuilder, FormArray, FormGroup, Validators } from '@angular/forms';
 import { User } from './user';
-import { emailValidator } from './email-validator.validator';
+import { asyncEmailValidator } from './async-validator.validator';
 
 
 
@@ -20,7 +20,7 @@ export class AppComponent  {
 	constructor(private fb: FormBuilder){}
 
 	emForm: FormGroup = this.fb.group({
-		"email" :['', [Validators.required,  Validators.minLength(10), Validators.email]]
+		"email" :['', [Validators.required], asyncEmailValidator]
 	})
 
 	onSubmit(f){
@@ -28,4 +28,7 @@ export class AppComponent  {
 	}
 
 }
+
+
+
 
