@@ -1,29 +1,39 @@
-import { Component, ElementRef, ViewChild, OnInit} from '@angular/core';
-import { FormControl, FormBuilder, FormArray, FormGroup, Validators } from '@angular/forms';
-import { User } from './user';
-import { asyncEmailValidator } from './async-validator.validator';
-import { BlackListService } from './blacklist.service';
-import { blackListValidator } from './blacklist.validator'
+import { Component, OnInit} from '@angular/core';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { emailValidator } from './email-validator.validator';
+
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent  {
+export class AppComponent implements OnInit  {
+	
+	constructor() {}
 
-	constructor(private blackService: BlackListService){}
+	form: FormGroup;
 
-	emForm: FormGroup = new FormGroup({
-		"email" : new FormControl('',   [ Validators.required, Validators.email ],  blackListValidator(this.blackService)     )
-	})
 
-	onSubmit(f){
-		console.log(f);
+	ngOnInit(){
+		this.formBuild()
 	}
 
+	formBuild() {
+		this.form = new FormGroup({
+			'name': new FormControl(null, Validators.required),
+			'email': new FormControl(null, [Validators.required, emailValidator])
+		})
+
+		this.form.statusChanges.subscribe(status => console.log(status))
+	}
+
+	onSubmit() {
+		console.log(this.form);
+		this.form.reset()
+	}
 }
 
 

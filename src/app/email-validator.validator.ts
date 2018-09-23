@@ -1,15 +1,19 @@
-import { FormControl } from '@angular/forms';
+import { FormControl, ValidationErrors } from '@angular/forms';
 
-export function emailValidator(control: FormControl) {
+export function emailValidator(control: FormControl) : {[ key: string ]: any} {
+
 	const value = control.value;
 	const emailRegex = /[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/i;
-	const valid = emailRegex.test(value);
+	if(value) {
+		const valid = emailRegex.test(value);
 
-	if(valid) {
-		return null;
-	} else {
-		return {
-			emailValidator: true
+		if(valid) {
+			return null;
+		} else {
+			return {
+				'emailValidator' : true		
+			}
 		}
 	}
+	
 }

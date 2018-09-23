@@ -1,26 +1,21 @@
-import { FormControl, ValidationErrors} from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
-export function asyncEmailValidator(control: FormControl) {
+export function asyncValidator(control : FormControl): Promise<any>{
 	return new Promise( resolve => {
-		console.log('start validation')
-		setTimeout(()=> {
+
+		setTimeout( ()=>{
 			const value = control.value;
 			const emailRegex = /[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/i;
+			const valid = emailRegex.test(value);
 
-			const result = emailRegex.test(value);
-			console.log('result --' +result)
-
-			if(result) {
-				console.log('validated');
-				resolve(null) ;
+			if(valid) {
+				resolve(null);
 			} else {
-				console.log('error')
-				resolve ({
-					'asyncEmailValidator' : {
-						valid: false
-					}
+				resolve({
+					'asyncValidator': true
 				})
 			}
-		}, 5000);
+
+		},5000);
 	})
 }

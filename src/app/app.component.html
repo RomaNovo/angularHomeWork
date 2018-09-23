@@ -1,36 +1,32 @@
 <div class="container">
-	<form [formGroup]= "emForm" (ngSubmit)='onSubmit(emForm)'>
 
-		<div class="form-group" 
-			[class.danger]="emForm.get('email').hasError('blackListValidator')"
-			[class.success]="!emForm.get('email').hasError('blackListValidator') &&
-							emForm.get('email').valid"
-		>
-			
-		
+	<form [formGroup]="form" (ngSubmit)="onSubmit()">
+		<div class="form-group">
+
+			<label for="name">Name</label>
+
+			<input type="text"
+				class="form-control"
+				id="name"
+				formControlName="name" 
+				>
+
+
+		</div>
+
+		<div class="form-group">
 
 			<label for="email">Email</label>
 
 			<input type="email"
-				id="email" 
 				class="form-control"
-				formControlName="email">
-
-
-
-			 <span *ngIf="emForm.controls.email.pending"			
-			 >
-			 	Check email..pending
-			 </span>
+				id="email"
+				formControlName="email" 
+				>
 			
-			<span *ngIf="emForm.get('email').hasError('blackListValidator')">
-				This mail is Blocked
-			</span>
-
-			
+			<p *ngIf="form.get('email').hasError('emailValidator')">Email not correctly</p>
 		</div>
-
-		<button class="btn btn-primary" (click)="onSubmit()">Submit</button>
-
+		
+		<button class="btn btn-primary">Submited</button>
 	</form>
 </div>
