@@ -1,6 +1,11 @@
 import { Component} from '@angular/core';
 import { CarService } from './car.service';
-import { Response } from '@angular/http';
+
+interface Cars {
+	'name': string,
+	'color': string,
+	id: number
+}
 
 @Component({
   selector: 'app-root',
@@ -10,16 +15,13 @@ import { Response } from '@angular/http';
 
 export class AppComponent  {
 
-	cars = [];
+	cars: Cars[] = [];
 	
 	constructor(private carService: CarService){}
 
 	getCar() {
 		this.carService.getCar()
-		.subscribe( (response: Response) => {
-			 this.cars = response.json();
-				
-		})
+		.subscribe( (cars: Cars[]) => this.cars = cars)
 	}
 }
 
