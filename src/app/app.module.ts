@@ -4,30 +4,21 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { CarFilterPipe } from './pipes/carFilter.pipe';
-import { BackgroundDirective } from './directives/background.directive';
-
-
-
-
-
+import { CarService } from './car.service';
 
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CarFilterPipe,
-    BackgroundDirective,
-  
+    AppComponent
   ],
   imports: [
     BrowserModule,
    	HttpModule,
-    ReactiveFormsModule
+   
   ],
-  providers: [  ],
+  providers: [ CarService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
