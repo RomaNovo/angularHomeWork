@@ -15,13 +15,23 @@ interface Cars {
 
 export class AppComponent  {
 
+	carName: string = '';
+
 	cars: Cars[] = [];
 	
-	constructor(private carService: CarService){}
+	constructor(private carService: CarService){
+		this.getCar()
+	}
 
 	getCar() {
 		this.carService.getCar()
 		.subscribe( (cars: Cars[]) => this.cars = cars)
+	}
+
+	loadCar() {
+		this.carService.addCar(this.carName)
+		.subscribe( data => this.cars.push(data));
+		this.carName = '';
 	}
 }
 
