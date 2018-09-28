@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
 import { CarService } from './car.service';
+import { Response } from '@angular/http';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,10 @@ export class AppComponent  {
 
 	getCar() {
 		this.carService.getCar()
-		.subscribe( response => console.log(response))
+		.subscribe( (response: Response) => {
+			 this.cars = response.json();
+				
+		})
 	}
 }
 
