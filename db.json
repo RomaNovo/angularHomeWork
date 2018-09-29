@@ -9,6 +9,32 @@
       "name": "Nissan",
       "color": "white",
       "id": 2
+    },
+    {
+      "name": "",
+      "color": "white",
+      "id": 3
+    },
+    {
+      "name": "",
+      "color": "white",
+      "id": 4
+    },
+    {
+      "name": "Bently",
+      "color": "white",
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "name": "Honda",
+      "color": "white",
+      "id": 8
     }
   ]
 }

@@ -55,7 +55,6 @@ export class AppComponent  {
 			.subscribe(data => {
 				this.cars = this.cars.filter( car => car.id != id);
 			})
-		
 	}
 }
 
