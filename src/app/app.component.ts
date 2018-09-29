@@ -49,6 +49,14 @@ export class AppComponent  {
 		car.color = this.getColor();
 		this.carService.changeColor(car)
 	}
+
+	removeCar(id: number) {
+		this.carService.delCar(id)
+			.subscribe(data => {
+				this.cars = this.cars.filter( car => car.id != id);
+			})
+		
+	}
 }
 
 

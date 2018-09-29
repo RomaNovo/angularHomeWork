@@ -23,4 +23,9 @@ export class CarService {
 			.map( (response) => response.json())
 	}
 
+	delCar(id) {
+		return this.http.delete(`http://localhost:3000/cars/${id}`)
+			.map( response => response.json());
+	}
+
 }

@@ -11,6 +11,7 @@
 			[ngStyle]="{background: car.color}"
 			>{{ car.id }}</span> {{ car.name }} ({{ car.color }})
 			<button class="btn btn-xs btn-info " (click)="addColor(car)">Add color</button>
+			<button class="btn btn-xs btn-danger " (click)="removeCar(car.id)">Remove car</button>
 		</li>
 	</ul> 
 </div>
