@@ -16,6 +16,11 @@ export class CarService {
 		const data = { name, 'color': 'white'};
 		return this.http.post('http://localhost:3000/cars', data)
 				.map(response=> response.json());
-
 	}
+
+	changeColor(car: any) {
+		return this.http.put(`http://localhost:3000/cars/${car.id}`, car)
+			.map( (response) => response.json())
+	}
+
 }

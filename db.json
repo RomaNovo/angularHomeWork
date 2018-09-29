@@ -1,34 +1,9 @@
 {
   "cars": [
     {
-      "color": "white",
       "name": "Ford",
-      "id": 1
+      "id": 1,
+      "color": "orange"
     },
-    {
-      "name": "Mazda",
-      "color": "white",
-      "id": 2
-    },
-    {
-      "name": "Nissan",
-      "color": "white",
-      "id": 3
-    },
-    {
-      "name": "Opel",
-      "color": "white",
-      "id": 4
-    },
-    {
-      "name": "Nubira",
-      "color": "white",
-      "id": 5
-    },
-    {
-      "name": "Mercedes",
-      "color": "white",
-      "id": 6
-    }
   ]
 }

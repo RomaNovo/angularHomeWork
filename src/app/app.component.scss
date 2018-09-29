@@ -11,7 +11,7 @@ input {
 }
 
 span {
-	display: block;
+	border-radius: 50%;
 	color: darkred;
 	font-weight: bold;
 }
@@ -21,3 +21,9 @@ button {
 	font-weight: bold;
 }
 
+
+li {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
