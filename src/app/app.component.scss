@@ -12,7 +12,7 @@ input {
 
 span {
 	border-radius: 50%;
-	color: darkred;
+	color: #ffff;
 	font-weight: bold;
 }
 
@@ -21,9 +21,12 @@ button {
 	font-weight: bold;
 }
 
-
-li {
+.nav.nav-bar {
 	display: flex;
-	align-items: center;
-	justify-content: space-between;
+	width: 500px;
+}
+
+.active {
+	background: mediumseagreen;
+	opacity: .5;
 }

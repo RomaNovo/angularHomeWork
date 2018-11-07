@@ -1,40 +1,19 @@
 {
   "cars": [
     {
-      "name": "Honda",
-      "color": "white",
-      "id": 1
-    },
-    {
       "name": "Nissan",
-      "color": "white",
-      "id": 2
-    },
-    {
-      "name": "",
-      "color": "white",
-      "id": 3
-    },
-    {
-      "name": "",
-      "color": "white",
-      "id": 4
-    },
-    {
-      "name": "Bently",
-      "color": "white",
+      "color": "orange",
       "id": 5
     },
     {
+      "name": "Ford",
+      "color": "red",
       "id": 6
     },
     {
+      "name": "ddd",
+      "color": "blue",
       "id": 7
-    },
-    {
-      "name": "Honda",
-      "color": "white",
-      "id": 8
     }
   ]
 }

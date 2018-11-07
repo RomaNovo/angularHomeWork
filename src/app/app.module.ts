@@ -5,20 +5,25 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CarService } from './car.service';
-
-
+import { HomePageComponent } from './home-page/home-page.component';
+import { CarsPageComponent } from './cars-page/cars-page.component';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomePageComponent,
+    CarsPageComponent
   ],
   imports: [
     BrowserModule,
    	HttpModule,
-   FormsModule
+   FormsModule,
+   AppRoutingModule
   ],
   providers: [ CarService ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {}
